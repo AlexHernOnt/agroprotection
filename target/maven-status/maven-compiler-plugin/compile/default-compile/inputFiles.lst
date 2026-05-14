@@ -1,6 +1,7 @@
 C:\Games\_Code\eclipse\agroprotection\src\main\java\agroprotection\application\GetUserUseCase.java
 C:\Games\_Code\eclipse\agroprotection\src\main\java\agroprotection\application\UserPort.java
 C:\Games\_Code\eclipse\agroprotection\src\main\java\agroprotection\configuration\ApplicationConfig.java
+C:\Games\_Code\eclipse\agroprotection\src\main\java\agroprotection\domain\Terreno.java
 C:\Games\_Code\eclipse\agroprotection\src\main\java\agroprotection\domain\User.java
 C:\Games\_Code\eclipse\agroprotection\src\main\java\agroprotection\infrastructure\MySQLUserAdapter.java
 C:\Games\_Code\eclipse\agroprotection\src\main\java\agroprotection\ui\UserBean.java

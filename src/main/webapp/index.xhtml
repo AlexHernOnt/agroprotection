@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+		xmlns:h="http://xmlns.jcp.org/jsf/html">
 
 
 <h:head>
@@ -45,14 +46,18 @@
 	
 	<div class="center">	
 
-	    <h2>Bienvenido #{userBean.name}</h2>
+	    <h2>Bienvenido #{userBean.user.name}</h2>
 	
-		<h2>Tienes #{userBean.hectarias} hectarias contratadas:</h2>
+		<h2>Tienes #{userBean.user.hectarias} hectarias contratadas:</h2>
 		
-		<div class = "list">
-			<h2>- Tarragona, 14 hectarias, 20k€, </h2>
-			<h2>- Burgos, 6 hectarias, 4k€, </h2>	
-		</div>
+		<ui:repeat value="#{userBean.user.terrenos}" var="g">
+
+		    <h2>
+		        - #{g.comunidad}, #{g.hectarias} hectarias, #{g.precio}k€.
+		    </h2>
+
+		</ui:repeat>
+		
 	</div>	
 
 	</h:body>
