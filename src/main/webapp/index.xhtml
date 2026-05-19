@@ -1,64 +1,154 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-		xmlns:h="http://xmlns.jcp.org/jsf/html">
-
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
 <h:head>
-    <title>AgroProtection</title>
 	
+<title>AgroProtection Login</title>
+
+	<link rel="icon"
+	      type="image/png"
+	      href="resources/images/icon.png" />
+    
 	<style>
-		
-		html {
-		    background-color: #718e5f;
-		}
-		
-		.header {
-			background-color: #5c7d48;
-		    text-align: left;
-		    padding: 10px;
-		    font-weight: bold;
-		    font-size: 29px;
-		}
-		
-	    .center {
-			text-align: center;
-		}
-			
-		.list {
-			display: inline-block;
-			text-align: left;
-			margin-top: 10px;
-		}
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            background-color: #718e5f;
+        }
 
 
-	</style>
-	
+
+        .logo {
+            height: 75%;
+            margin-right: 12px;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* LOGIN AREA */
+		.login-container {
+		    position: relative;
+
+		    width: 100%;
+		    height: calc(100vh - 75px);
+
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		}
+
+        .background-card {
+            position: absolute;
+
+            width: 1300px;
+            height: 800px;
+
+            background: url("#{resource['images:bosque1.png']}");
+            background-size: cover;
+            background-position: center;
+
+            border-radius: 12px;
+ 			margin-top: 50px;
+
+            filter: brightness(0.95);
+        }
+
+        /* LOGIN BOX */
+        .login-box {
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            width: 300px;
+        }
+
+        /* LOGO */
+        .logoTrans {
+            height: 90px;
+
+            /* bigger gap between logo and inputs */
+            margin-bottom: 250px;
+
+            /* brighter + slight contrast boost */
+			filter: brightness(0) invert(1);
+
+ 
+        }
+
+        /* FORM */
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+			margin-bottom: 50px;
+        }
+
+        .login-form input {
+            margin: 6px 0;
+            padding: 10px;
+
+            border: none;
+            border-radius: 6px;
+        }
+
+        .login-form button {
+            margin-top: 10px;
+            padding: 10px;
+
+            background-color: #3f5c36;
+            color: white;
+
+            border: none;
+            border-radius: 6px;
+
+            cursor: pointer;
+        }
+
+    </style>
+
 </h:head>
-
-
-
-
 
 <h:body>
 
-	<div class="header">🌾 AgroProteción</div>
-	
-	<div class="center">	
 
-	    <h2>Bienvenido #{userBean.user.name}</h2>
-	
-		<h2>Tienes #{userBean.user.hectarias} hectarias contratadas:</h2>
-		
-		<ui:repeat value="#{userBean.user.terrenos}" var="g">
+    <!-- LOGIN -->
+    <div class="login-container">
 
-		    <h2>
-		        - #{g.comunidad}, #{g.hectarias} hectarias, #{g.precio}k€.
-		    </h2>
+        <div class="background-card"></div>
 
-		</ui:repeat>
-		
-	</div>	
+        <div class="login-box">
 
-	</h:body>
+            <h:graphicImage
+                library="images"
+                name="logoTrans.png"
+                styleClass="logoTrans" />
+
+            <h:form styleClass="login-form">
+
+                <h:inputText value="#{loginBean.username}" />
+
+                <h:inputSecret value="#{loginBean.password}" />
+
+                <h:commandButton value="Login"
+                                 action="#{loginBean.login}" />
+
+            </h:form>
+
+        </div>
+
+    </div>
+
+</h:body>
+
 </html>

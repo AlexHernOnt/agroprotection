@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+ 
+    <title>AgroProtection</title>
+
+    <link rel="icon"
+          type="image/png"
+          href="resources/images/icon.png" />
+
+    <style>
+
+		body {
+		    margin: 0;
+		    font-family: Arial, sans-serif;
+		}
+
+		html {
+		    background-color: #718e5f;
+		}
+
+		/* HEADER */
+		.header {
+		    background-color: #597a43;
+
+		    width: 100%;
+		    height: 75px;
+
+		    display: flex;
+		    align-items: center;
+
+		    padding: 0 30px;
+		    box-sizing: border-box;
+
+		    color: white;
+		}
+
+		.logo {
+		    height: 75%;
+		    margin-right: 12px;
+		}
+
+		.title {
+		    font-size: 18px;
+		    font-weight: 600;
+		}
+
+        /* MAIN LAYOUT */
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* SIDE IMAGE */
+
+        .sideImage {
+            width: 600px;   /* 👈 MÁS ANCHA */
+            display: block;
+            object-fit: cover;
+
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+        }
+
+        /* CONTAINER */
+
+        .container {
+            width: 900px;
+
+            background-color: #f4f4f4;
+
+            padding: 30px;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* TERRAIN CARDS */
+
+        .terrain-card {
+            background-color: white;
+
+            margin-top: 15px;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.15);
+
+            font-size: 18px;
+        }
+
+        .add-button {
+            align-self: center;
+
+            margin-top: 10px;
+            margin-bottom: 15px;
+            padding: 10px 20px;
+
+            background-color: #3f5c36;
+            color: white;
+
+            border: none;
+            border-radius: 6px;
+
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+    </style>
+
+</h:head>
+
+<h:body>
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h:graphicImage
+            library="images"
+            name="logo.png"
+            styleClass="logo" />
+
+        <span class="title">
+            Agro Protection
+        </span>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main-content">
+
+        <!-- SIDE IMAGE -->
+
+        <h:graphicImage
+            library="images"
+            name="wheat.jpg"
+            styleClass="sideImage" />
+
+        <!-- CONTAINER -->
+
+        <div class="container">
+
+            <div class="title-section">
+
+                <h1>
+                    Bienvenido #{userBean.user.name}
+                </h1>
+
+                <h2>
+                    Tienes #{userBean.user.hectarias}
+                    hectarias contratadas
+                </h2>
+
+            </div>
+
+            <h:button value="Añadir terreno"
+                      outcome="addTerreno"
+                      styleClass="add-button" />
+
+            <ui:repeat value="#{userBean.user.terrenos}" var="g">
+
+                <div class="terrain-card">
+
+                    📍 #{g.comunidad}
+
+                    <br/>
+
+                    🌱 #{g.hectarias} hectarias
+
+                    <br/>
+
+                    💰 #{g.precio}k€
+
+                </div>
+
+            </ui:repeat>
+
+        </div>
+
+    </div>
+
+</h:body>
+</html>

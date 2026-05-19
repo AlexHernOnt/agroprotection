@@ -1,36 +1,23 @@
 package agroprotection.ui;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import java.io.Serializable;
 
-import agroprotection.application.GetUserUseCase;
-import agroprotection.configuration.ApplicationConfig;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
 import agroprotection.domain.User;
 
 @ManagedBean(name = "userBean")
-@RequestScoped
-public class UserBean {
-	
-	private User user;
-	
-	// Configuration
-	private final ApplicationConfig config = new ApplicationConfig();
-	
-	// Connects to application layer
-	private final GetUserUseCase app = config.getUserUseCase();
+@SessionScoped
+public class UserBean implements Serializable {
 
-	
-	public UserBean () {
-		user = app.getUser("Juan");
-	}
-	
-	public User getUser() {
-		System.out.println(user.getTerrenos().get(1).getComunidad());
-		return user;
-	}
-	
+    private User user;
 
+    public User getUser() {
+        return user;
+    }
 
-    
-   // public List<Terreno> getTerreno
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

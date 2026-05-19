@@ -1,0 +1,9 @@
+agroprotection\infrastructure\MySQLUserAdapter.class
+agroprotection\application\UserPort.class
+agroprotection\ui\UserBean.class
+agroprotection\ui\LoginBean.class
+agroprotection\application\GetUserUseCase.class
+agroprotection\domain\User.class
+agroprotection\ui\AddTerrenoBean.class
+agroprotection\domain\Terreno.class
+agroprotection\configuration\ApplicationConfig.class
